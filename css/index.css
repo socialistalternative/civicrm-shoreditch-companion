@@ -1,0 +1,121 @@
+/* Override the font size for everything except icons */
+*:not(.crm-i):not(.ui-icon):not(.helpicon):not(.fa) {
+  font-family: Inter, sans-serif;
+}
+
+/* Set the page background to match CiviCRM */
+.page-civicrm {
+  background: #e8eef0;
+}
+
+/* Style the page header */
+.page-civicrm .content-header {
+  background-color: transparent;
+  margin-bottom: 0 !important;
+}
+
+.page-civicrm .content-header h1 {
+  font-weight: 600;
+  font-size: 24px;
+}
+
+#block-civicrm-shoreditch-companion-page-title {
+  margin-bottom: 0 !important;
+}
+
+/* Remove padding and margin on contact view */
+.page-civicrm-contact-view .layout-container,
+.page-civicrm-contact-view .page-content {
+  margin: 0 !important;
+}
+
+@media (min-width: 976px) {
+  body.page-civicrm-contact-view.crm-menubar-visible.crm-menubar-visible
+    .content-header {
+    padding-top: 50px !important;
+  }
+}
+
+/* Show CiviCRM notifications at the bottom of the screen */
+#crm-notification-container {
+  bottom: 45px !important;
+  top: auto !important;
+}
+
+/* Ensure enough spacing on the body when CiviCRM menu bar is shown */
+@media (min-width: 976px) {
+  body.crm-menubar-visible.crm-menubar-visible {
+    padding-top: 0 !important;
+  }
+
+  body.crm-menubar-visible.crm-menubar-visible .content-header {
+    padding-top: 64px !important;
+  }
+}
+
+/* Hide Gin's secondary toolbar on smaller breakpoints */
+.gin-secondary-toolbar {
+  display: none !important;
+}
+
+@media (min-width: 976px) {
+  .gin-secondary-toolbar {
+    display: flex !important;
+  }
+}
+
+/* Style and position the CiviCRM menu bar */
+#civicrm-menu {
+  opacity: 0.999 !important;
+  background: rgba(255, 255, 255, 0.8) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+  backdrop-filter: blur(12px) !important;
+  position: fixed !important;
+  z-index: 10 !important;
+  top: var(--gin-toolbar-height, 0) !important;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.12) !important;
+}
+
+#civicrm-menu > li > a {
+  background: white !important;
+}
+
+#civicrm-menu > li > a:not(:hover):not(.highlighted) {
+  background: transparent !important;
+}
+
+@media (min-width: 976px) {
+  #civicrm-menu {
+    top: var(--gin-toolbar-secondary-height, 0) !important;
+  }
+}
+
+/* Style and position the small breakpoint CiviCRM menu toggle */
+@media (max-width: 609px) {
+  #civicrm-menu-nav {
+    position: fixed !important;
+    top: 0 !important;
+  }
+}
+
+@media (min-width: 768px) {
+  .crm-menubar-toggle-btn {
+    display: none !important;
+  }
+}
+
+.crm-menubar-toggle-btn,
+#crm-menubar-state:checked ~ .crm-menubar-toggle-btn {
+  left: auto !important;
+  right: 0 !important;
+  width: 90px !important;
+  background-color: rgb(15, 15, 15) !important;
+  border-bottom-left-radius: 8px;
+}
+
+/* Prevent menu toggle from overlapping user menu */
+@media (max-width: 767px) {
+  .toolbar .toolbar-bar {
+    display: block !important;
+  }
+}

@@ -1,0 +1,7 @@
+global-styling:
+  css:
+    component:
+      css/index.css: {}
+      "https://rsms.me/inter/inter.css": { type: external }
+  js:
+    js/index.js: {}
