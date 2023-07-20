@@ -2,7 +2,7 @@ name: CiviCRM Shoreditch companion theme
 type: theme
 description: Companion theme for the Shoreditch CiviCRM theme
 package: CiviCRM
-core_version_requirement: ^9
+core_version_requirement: ^9 || ^10
 base theme: claro
 libraries:
   - civicrm_shoreditch_companion/global-styling
