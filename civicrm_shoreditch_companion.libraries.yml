@@ -1,7 +1,8 @@
 global-styling:
   css:
     component:
-      css/index.css: {}
       "https://rsms.me/inter/inter.css": { type: external }
+      "https://unpkg.com/normalize.css@8.0.1/normalize.css": { type: external }
+      css/index.css: {}
   js:
     js/index.js: {}

@@ -3,7 +3,7 @@ type: theme
 description: Companion theme for the Shoreditch CiviCRM theme
 package: CiviCRM
 core_version_requirement: ^9 || ^10
-base theme: claro
+base theme: stark
 libraries:
   - civicrm_shoreditch_companion/global-styling
 regions:

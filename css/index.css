@@ -8,32 +8,47 @@
   background: #e8eef0;
 }
 
-/* Style the page header */
-.page-civicrm .content-header {
-  background-color: transparent;
-  margin-bottom: 0 !important;
+:root {
+  --civicrm-menu-height: 41px;
 }
 
-.page-civicrm .content-header h1 {
-  font-weight: 600;
-  font-size: 24px;
+hr {
+  border: 0;
+  height: 1px;
 }
 
-#block-civicrm-shoreditch-companion-page-title {
-  margin-bottom: 0 !important;
+/* === Container === */
+
+.layout-container {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+@media (min-width: 768px) {
+  .layout-container {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
 }
 
 /* Remove padding and margin on contact view */
-.page-civicrm-contact-view .layout-container,
-.page-civicrm-contact-view .page-content {
-  margin: 0 !important;
+.page-civicrm-contact-view .layout-container {
+  padding-left: 0;
+  padding-right: 0;
 }
 
-@media (min-width: 976px) {
-  body.page-civicrm-contact-view.crm-menubar-visible.crm-menubar-visible
-    .content-header {
-    padding-top: 50px !important;
-  }
+/* === Page header === */
+
+header {
+  display: flex;
+  flex-direction: column;
+}
+
+header h1 {
+  color: #222330;
+  font-weight: 500;
+  font-size: 24px;
+  margin: 1.5rem 0;
 }
 
 /* Show CiviCRM notifications at the bottom of the screen */
@@ -42,16 +57,7 @@
   top: auto !important;
 }
 
-/* Ensure enough spacing on the body when CiviCRM menu bar is shown */
-@media (min-width: 976px) {
-  body.crm-menubar-visible.crm-menubar-visible {
-    padding-top: 0 !important;
-  }
-
-  body.crm-menubar-visible.crm-menubar-visible .content-header {
-    padding-top: 64px !important;
-  }
-}
+/* === Menus === */
 
 /* Hide Gin's secondary toolbar on smaller breakpoints */
 .gin-secondary-toolbar {
@@ -64,16 +70,86 @@
   }
 }
 
+/* Ensure enough spacing on the body when CiviCRM menu bar is shown */
+@media (min-width: 976px) {
+  body.crm-menubar-visible.crm-menubar-visible {
+    padding-top: 0 !important;
+  }
+
+  body.crm-menubar-visible.crm-menubar-visible .layout-container {
+    padding-top: var(--civicrm-menu-height) !important;
+  }
+}
+
 /* Style and position the CiviCRM menu bar */
 #civicrm-menu {
   opacity: 0.999 !important;
   background: rgba(255, 255, 255, 0.8) !important;
   -webkit-backdrop-filter: blur(12px) !important;
   backdrop-filter: blur(12px) !important;
-  position: fixed !important;
+
   z-index: 10 !important;
   top: var(--gin-toolbar-height, 0) !important;
   border-bottom: 1px solid rgba(0, 0, 0, 0.12) !important;
+}
+
+@media (min-width: 768px) {
+  #civicrm-menu {
+  }
+}
+
+@media (max-width: 767px) {
+  #civicrm-menu {
+    max-height: calc(100dvh - var(--gin-toolbar-height, 0)) !important;
+    overflow-y: scroll;
+  }
+
+  #civicrm-menu li {
+    padding: 0;
+  }
+
+  #civicrm-menu li a {
+    padding: 12px 18px !important;
+    text-align: left !important;
+  }
+
+  #civicrm-menu li a:hover,
+  #civicrm-menu li a:focus,
+  #civicrm-menu li a.highlighted {
+    background: transparent !important;
+  }
+
+  #civicrm-menu #crm-qsearch > a {
+    padding: 0 !important;
+  }
+
+  #civicrm-menu.sm #crm-qsearch-input {
+    padding: 18px !important;
+  }
+  #civicrm-menu li .sub-arrow:before,
+  #civicrm-menu li li .sub-arrow:before {
+    color: #464354 !important;
+  }
+
+  #civicrm-menu.sm ul li a {
+    padding-left: 36px !important;
+  }
+
+  #civicrm-menu.sm ul ul li a {
+    padding-left: 42px !important;
+  }
+
+  #civicrm-menu.sm ul,
+  #civicrm-menu.sm ul ul {
+    border-top: 1px solid rgba(0, 0, 0, 0.1) !important;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1) !important;
+    background-color: transparent !important;
+  }
+}
+
+#civicrm-menu li.crm-menu-border-bottom + li,
+#civicrm-menu li + li.crm-menu-border-top {
+  border-top: 1px solid rgba(0, 0, 0, 0.1) !important;
 }
 
 #civicrm-menu > li > a {
@@ -118,4 +194,125 @@
   .toolbar .toolbar-bar {
     display: block !important;
   }
+}
+
+/* === Afform tweaks === */
+
+h1[crm-page-title] {
+  display: none !important;
+}
+
+.crm-form-date-wrapper {
+  display: flex !important;
+}
+
+fieldset.af-container > * + * {
+  display: block !important;
+  margin-top: 12px !important;
+}
+
+.crm-af-field input {
+  width: auto !important;
+}
+
+.crm-af-field-help-post {
+  color: #6b7280 !important;
+  margin-top: 4px !important;
+}
+
+.af-container-style-pane {
+  padding: 20px 20px 24px !important;
+  margin: 0 !important;
+  border-radius: 6px !important;
+  box-shadow:
+    0 4px 6px -1px rgb(0 0 0 / 0.1),
+    0 2px 4px -2px rgb(0 0 0 / 0.1) !important;
+}
+
+.af-repeat-add-btn,
+.af-repeat-copy-btn {
+  margin-bottom: 12px !important;
+}
+
+/* === Searchkit tweaks === */
+
+.crm-search-display-table th.crm-search-result-select {
+  padding: 7px !important;
+  width: 100px !important;
+}
+
+.crm-search-display-table th.crm-search-result-select .btn-group {
+  display: flex !important;
+}
+
+.crm-search-display-table > .form-inline {
+  margin: 0 12px !important;
+}
+
+table a.sorting,
+table a.sorting_asc,
+table a.sorting_desc {
+  position: relative;
+}
+
+@media (min-width: 768px) {
+  .crm-search-display-table .form-inline .form-control {
+    width: calc(100% + 8px) !important;
+    max-width: none !important;
+    height: 25px !important;
+  }
+
+  .crm-editable-enabled:not(.crm-editable-editing):hover::after {
+    top: calc(50% - 7px) !important;
+  }
+
+  .crm-search-display-table .crm-form-date-wrapper .addon {
+    height: 25px !important;
+    padding: 5px 10px !important;
+  }
+
+  .crm-search-display-table .crm-form-date-wrapper .form-control {
+    width: calc(100% - 12px) !important;
+  }
+
+  .crm-editable-enabled,
+  .crm-editable-disabled {
+    margin: 0 -4px !important;
+  }
+
+  .crm-search-display-table .form-inline {
+    margin: 0 -4px !important;
+  }
+
+  .crm-search-display-table .form-inline .crm-search-display-editable-button {
+    margin-top: 4px !important;
+  }
+}
+
+.crm-search-display-table table {
+  table-layout: fixed;
+  min-width: 1024px;
+}
+
+.crm-search-display-table-column-label {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+  vertical-align: middle;
+}
+
+.crm-sortable-col {
+  white-space: nowrap;
+}
+
+@media (max-width: 767px) {
+  table.crm-sticky-header > thead > tr {
+    top: var(--gin-toolbar-height, 0) !important;
+  }
+}
+
+.crm-search-table-column-sort-icon {
+  vertical-align: middle;
+  left: 10px !important;
 }
