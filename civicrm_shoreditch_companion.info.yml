@@ -6,6 +6,10 @@ core_version_requirement: ^9 || ^10
 base theme: stark
 libraries:
   - civicrm_shoreditch_companion/global-styling
+libraries-override:
+  claro/claro.drupal.dialog: false
+  gin/dialog: false
+  gin/gin_dialog: false
 regions:
   header: Header
   content: Content
