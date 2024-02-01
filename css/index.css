@@ -59,6 +59,11 @@ header h1 {
 
 /* === Menus === */
 
+.gin-breadcrumb__list {
+  list-style: none;
+  padding: 0;
+}
+
 /* Hide Gin's secondary toolbar on smaller breakpoints */
 .gin-secondary-toolbar {
   display: none !important;
