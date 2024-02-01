@@ -1,5 +1,5 @@
 (function ($, _) {
-  if (CRM.menubar) {
+  if ($("#civicrm-menu").length) {
     CRM.menubar.removeToggleButton();
     CRM.menubar.position = "below-cms-menu";
     $("body").removeClass("crm-menubar-over-cms-menu");
