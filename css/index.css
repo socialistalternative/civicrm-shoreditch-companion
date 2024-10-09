@@ -59,28 +59,16 @@ header h1 {
 
 /* === Menus === */
 
-.gin-breadcrumb__list {
-  list-style: none;
-  padding: 0;
+.admin-toolbar-control-bar {
+  position: sticky;
+  top: 0;
 }
 
-/* Hide Gin's secondary toolbar on smaller breakpoints */
-.gin-secondary-toolbar {
-  display: none !important;
+body.crm-menubar-visible.crm-menubar-visible {
+  padding-top: 0 !important;
 }
 
-@media (min-width: 976px) {
-  .gin-secondary-toolbar {
-    display: flex !important;
-  }
-}
-
-/* Ensure enough spacing on the body when CiviCRM menu bar is shown */
-@media (min-width: 976px) {
-  body.crm-menubar-visible.crm-menubar-visible {
-    padding-top: 0 !important;
-  }
-
+@media (min-width: 768px) {
   body.crm-menubar-visible.crm-menubar-visible .layout-container {
     padding-top: var(--civicrm-menu-height) !important;
   }
@@ -88,13 +76,14 @@ header h1 {
 
 /* Style and position the CiviCRM menu bar */
 #civicrm-menu {
+  transition: all var(--admin-toolbar-transition);
   opacity: 0.999 !important;
   background: rgba(255, 255, 255, 0.8) !important;
   -webkit-backdrop-filter: blur(12px) !important;
   backdrop-filter: blur(12px) !important;
 
   z-index: 10 !important;
-  top: var(--gin-toolbar-height, 0) !important;
+  top: var(--drupal-displace-offset-top, 0) !important;
   border-bottom: 1px solid rgba(0, 0, 0, 0.12) !important;
 }
 
@@ -105,7 +94,7 @@ header h1 {
 
 @media (max-width: 767px) {
   #civicrm-menu {
-    max-height: calc(100dvh - var(--gin-toolbar-height, 0)) !important;
+    max-height: calc(100dvh - var(--drupal-displace-offset-top, 0)) !important;
     overflow-y: scroll;
   }
 
@@ -165,9 +154,10 @@ header h1 {
   background: transparent !important;
 }
 
-@media (min-width: 976px) {
+@media (min-width: 1024px) {
   #civicrm-menu {
-    top: var(--gin-toolbar-secondary-height, 0) !important;
+    left: var(--admin-toolbar-sidebar-width) !important;
+    top: 0 !important;
   }
 }
 
@@ -313,7 +303,7 @@ table a.sorting_desc {
 
 @media (max-width: 767px) {
   table.crm-sticky-header > thead > tr {
-    top: var(--gin-toolbar-height, 0) !important;
+    top: var(--drupal-displace-offset-top, 0) !important;
   }
 }
 
